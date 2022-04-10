@@ -6,6 +6,7 @@ from datetime import datetime
 keyboard = Tk()
 keyboard.geometry("970x800")
 keyboard.title("Desktop Keyboard")
+keyboard.configure(bg="skyblue")
 icon = PhotoImage(file="C:\\Users\\Sri\\Work\\Git\\PythonPuzzles\\DesktopKeyboard\\paint.png")
 keyboard.iconphoto(False, icon)
 
@@ -17,8 +18,8 @@ label_date.grid(row=0, column=0, columnspan=2, padx=5, pady=5)
 #create string to get values
 var = StringVar()
 var = Frame(keyboard, bg="red")
-entry_var = Entry(keyboard, bg="#eee", textvariable = var, font = ("arial", 40, "bold"))
-entry_var.grid(row=0, column=2, columnspan=10, padx=20)
+entry_var = Entry(keyboard, textvariable = var, bg = "cyan", fg = "black", font = ("arial", 40, "bold"))
+entry_var.grid(row=0, column=2, columnspan=10, padx=20, pady=5)
 
 #creating row 1 buttons
 button_q = Button(keyboard, bg = "#eee", text = "q", width=4, font=("arial", 20, "bold"))
@@ -43,5 +44,30 @@ button_u.grid(row=1, column=6, padx=5, pady=5)
 button_i.grid(row=1, column=7, padx=5, pady=5)
 button_o.grid(row=1, column=8, padx=5, pady=5)
 button_p.grid(row=1, column=9, padx=5, pady=5)
+
+#creating row 2 buttons
+caps = PhotoImage(file="C:\\Users\\Sri\\Work\\Git\\PythonPuzzles\\DesktopKeyboard\\caps_lock.png")
+button_caps = Button(keyboard, bg="#eee", image = caps)
+button_a = Button(keyboard, bg = "#eee", text = "a", width=4, font=("arial", 20, "bold"))
+button_s = Button(keyboard, bg = "#eee", text = "s", width=4, font=("arial", 20, "bold"))
+button_d = Button(keyboard, bg = "#eee", text = "d", width=4, font=("arial", 20, "bold"))
+button_f = Button(keyboard, bg = "#eee", text = "f", width=4, font=("arial", 20, "bold"))
+button_g = Button(keyboard, bg = "#eee", text = "g", width=4, font=("arial", 20, "bold"))
+button_h = Button(keyboard, bg = "#eee", text = "h", width=4, font=("arial", 20, "bold"))
+button_j = Button(keyboard, bg = "#eee", text = "j", width=4, font=("arial", 20, "bold"))
+button_k = Button(keyboard, bg = "#eee", text = "k", width=4, font=("arial", 20, "bold"))
+button_l = Button(keyboard, bg = "#eee", text = "l", width=4, font=("arial", 20, "bold"))
+
+#positioning row 2 buttons
+button_caps.grid(row=2, column=0, padx=5, pady=5)
+button_a.grid(row=2, column=1, padx=5, pady=5)
+button_s.grid(row=2, column=2, padx=5, pady=5)
+button_d.grid(row=2, column=3, padx=5, pady=5)
+button_f.grid(row=2, column=4, padx=5, pady=5)
+button_g.grid(row=2, column=5, padx=5, pady=5)
+button_h.grid(row=2, column=6, padx=5, pady=5)
+button_j.grid(row=2, column=7, padx=5, pady=5)
+button_k.grid(row=2, column=8, padx=5, pady=5)
+button_l.grid(row=2, column=9, padx=5, pady=5)
 
 keyboard.mainloop()
