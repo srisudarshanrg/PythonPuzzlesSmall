@@ -1,5 +1,6 @@
 from tkinter import *
 from PIL import Image,ImageTk
+import os
 from datetime import datetime
 
 #create screen
@@ -7,7 +8,10 @@ keyboard = Tk()
 keyboard.geometry("970x800")
 keyboard.title("Desktop Keyboard")
 keyboard.configure(bg="skyblue")
-icon = PhotoImage(file="C:\\Users\\Sri\\Work\\Git\\PythonPuzzles\\DesktopKeyboard\\paint.png")
+
+img_dir = os.getcwd()
+
+icon = PhotoImage(file=f"{img_dir}\DesktopKeyboard\paint.png")
 keyboard.iconphoto(False, icon)
 
 #create time bar
@@ -46,7 +50,7 @@ button_o.grid(row=1, column=8, padx=5, pady=5)
 button_p.grid(row=1, column=9, padx=5, pady=5)
 
 #creating row 2 buttons
-caps = PhotoImage(file="C:\\Users\\Sri\\Work\\Git\\PythonPuzzles\\DesktopKeyboard\\caps_lock.png")
+caps = PhotoImage(file=f"{img_dir}\DesktopKeyboard\caps_lock.png")
 button_caps = Button(keyboard, bg="#eee", image = caps)
 button_a = Button(keyboard, bg = "#eee", text = "a", width=4, font=("arial", 20, "bold"))
 button_s = Button(keyboard, bg = "#eee", text = "s", width=4, font=("arial", 20, "bold"))
