@@ -6,7 +6,7 @@ import webbrowser
 
 #create screen
 keyboard = Tk()
-keyboard.geometry("960x530")
+keyboard.geometry("925x510")
 keyboard.title("Desktop Keyboard")
 menu_bar = Menu(keyboard)
 keyboard.configure(bg="skyblue", menu=menu_bar)
