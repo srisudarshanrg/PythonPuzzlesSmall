@@ -1,23 +1,52 @@
 from tkinter import *
 from PIL import Image,ImageTk
-import os
 from datetime import datetime
+import os
+import webbrowser
 
 #create screen
 keyboard = Tk()
-keyboard.geometry("970x800")
+keyboard.geometry("960x530")
 keyboard.title("Desktop Keyboard")
-keyboard.configure(bg="skyblue")
+menu_bar = Menu(keyboard)
+keyboard.configure(bg="skyblue", menu=menu_bar)
 
 img_dir = os.getcwd()
 
 icon = PhotoImage(file=f"{img_dir}\DesktopKeyboard\paint.png")
 keyboard.iconphoto(False, icon)
 
+#create function for web help: menu bar; help menu; web search: line 33
+class web_help():
+    def __init__(self):
+        website = "https://support.microsoft.com/en-us/windows/use-the-on-screen-keyboard-osk-to-type-ecbb5e08-5b4e-d8c8-f794-81dbf896267a#:~:text=Go%20to%20Start%20%2C%20then%20select%20Settings%20%3E%20Ease%20of%20Access%20%3E,screen%20until%20you%20close%20it."
+        webbrowser.open(website)
+
+#create menu bar
+edit_menu = Menu(menu_bar)   #menu bar already created at the starting: line 10; line 11
+menu_bar.add_cascade(label="Edit", menu=edit_menu)
+edit_menu.add_command(label="Copy")
+edit_menu.add_command(label="Cut")
+edit_menu.add_separator()
+edit_menu.add_command(label="Paste")
+edit_menu.configure(bg="skyblue")
+
+help_menu = Menu(menu_bar)
+menu_bar.add_cascade(label="Help", menu=help_menu)
+help_menu.add_command(label="Search Help")
+help_menu.add_separator()
+help_menu.add_command(label="Web Help", command = lambda: web_help())
+help_menu.configure(bg="DodgerBlue2")
+
 #create time bar
 date = datetime.now().strftime("%H:%M")
 label_date = Label(keyboard, text = f"Time: {date}", font = ("arial", 18, "bold"))
 label_date.grid(row=0, column=0, columnspan=2, padx=5, pady=5)
+
+#create settings icon
+settings_icon = PhotoImage(file = f"{img_dir}\DesktopKeyboard\settings.png")
+settings_button = Button(keyboard, image=settings_icon)
+settings_button.grid(row=6, column=4, padx=20, pady=5)
 
 #create string to get values
 var = StringVar()
@@ -121,5 +150,29 @@ button_reverseslash.grid(row=4, column=6, padx=5, pady=5)
 button_at.grid(row=4, column=7, padx=5, pady=5)
 button_hash.grid(row=4, column=8, padx=5, pady=5)
 button_and.grid(row=4, column=9, padx=5, pady=5)
+
+#creating row 5 buttons
+button_add = Button(keyboard, bg = "#eee", text = "+", width = 4, font = ("arial", 20, "bold"))
+button_sub = Button(keyboard, bg = "#eee", text = "-", width = 4, font = ("arial", 20, "bold"))
+button_mply = Button(keyboard, bg = "#eee", text = "*", width = 4, font = ("arial", 20, "bold"))
+button_dvd = Button(keyboard, bg = "#eee", text = "/", width = 4, font = ("arial", 20, "bold"))
+button_dlr = Button(keyboard, bg = "#eee", text = "$", width = 4, font = ("arial", 20, "bold"))
+button_brc1 = Button(keyboard, bg = "#eee", text = "()", width = 4, font = ("arial", 20, "bold"))
+button_brc2 = Button(keyboard, bg = "#eee", text = "{}", width = 4, font = ("arial", 20, "bold"))
+button_brc3 = Button(keyboard, bg = "#eee", text = "[]", width = 4, font = ("arial", 20, "bold"))
+button_per = Button(keyboard, bg = "#eee", text = "%", width = 4, font = ("arial", 20, "bold"))
+button_sh6 = Button(keyboard, bg = "#eee", text = "^", width = 4, font = ("arial", 20, "bold"))
+
+#positioning row 5 buttons
+button_add.grid(row=5, column=0, padx=5, pady=5)
+button_sub.grid(row=5, column=1, padx=5, pady=5)
+button_mply.grid(row=5, column=2, padx=5, pady=5)
+button_dvd.grid(row=5, column=3, padx=5, pady=5)
+button_dlr.grid(row=5, column=4, padx=5, pady=5)
+button_brc1.grid(row=5, column=5, padx=5, pady=5)
+button_brc2.grid(row=5, column=6, padx=5, pady=5)
+button_brc3.grid(row=5, column=7, padx=5, pady=5)
+button_per.grid(row=5, column=8, padx=5, pady=5)
+button_sh6.grid(row=5, column=9, padx=5, pady=5)
 
 keyboard.mainloop()     
