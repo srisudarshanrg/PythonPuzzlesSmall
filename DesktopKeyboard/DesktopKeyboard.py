@@ -51,7 +51,7 @@ button_p.grid(row=1, column=9, padx=5, pady=5)
 
 #creating row 2 buttons
 caps = PhotoImage(file=f"{img_dir}\DesktopKeyboard\caps_lock.png")
-button_caps = Button(keyboard, bg="#eee", image = caps
+button_caps = Button(keyboard, bg="#eee", image = caps)
 button_a = Button(keyboard, bg = "#eee", text = "a", width=4, font=("arial", 20, "bold"))
 button_s = Button(keyboard, bg = "#eee", text = "s", width=4, font=("arial", 20, "bold"))
 button_d = Button(keyboard, bg = "#eee", text = "d", width=4, font=("arial", 20, "bold"))
@@ -75,7 +75,7 @@ button_k.grid(row=2, column=8, padx=5, pady=5)
 button_l.grid(row=2, column=9, padx=5, pady=5)
 
 #creating row 3 buttons
-button_shift = Button(keyboard, bg = "#eee", text = "Shift", width=4, font=("arial", 14, "bold"))
+button_shift = Button(keyboard, bg = "#eee", text = "Shift", width=4, font=("arial", 20, "bold"))
 button_z = Button(keyboard, bg = "#eee", text = "z", width=4, font=("arial", 20, "bold"))
 button_x = Button(keyboard, bg = "#eee", text = "x", width=4, font=("arial", 20, "bold"))
 button_c = Button(keyboard, bg = "#eee", text = "c", width=4, font=("arial", 20, "bold"))
@@ -83,12 +83,43 @@ button_v = Button(keyboard, bg = "#eee", text = "v", width=4, font=("arial", 20,
 button_b = Button(keyboard, bg = "#eee", text = "b", width=4, font=("arial", 20, "bold"))
 button_n = Button(keyboard, bg = "#eee", text = "n", width=4, font=("arial", 20, "bold"))
 button_m = Button(keyboard, bg = "#eee", text = "m", width=4, font=("arial", 20, "bold"))
-button_comma = Button(keyboard, bg = "#eee", text = ",", width=4, font=("arial", 20, "bold"))
+button_enter = Button(keyboard, bg = "#eee", text = "Enter", width=4, font=("arial", 20, "bold"))
 button_stop = Button(keyboard, bg = "#eee", text = ".", width=4, font=("arial", 20, "bold"))
 
 #positioning row 3 buttons
-button_shift.grid(row=3, column=0, columnspan=2, padx=5, pady=5)
-button_z.grid(row=3, column=2, padx=5, pady=5)
-button_x.grid(row=3, column=3, padx=5, pady=5)
+button_shift.grid(row=3, column=0, padx=5, pady=5)
+button_z.grid(row=3, column=1, padx=5, pady=5)
+button_x.grid(row=3, column=2, padx=5, pady=5)
+button_c.grid(row=3, column=3, padx=5, pady=5)
+button_v.grid(row=3, column=4, padx=5, pady=5)
+button_b.grid(row=3, column=5, padx=5, pady=5)
+button_n.grid(row=3, column=6, padx=5, pady=5)
+button_m.grid(row=3, column=7, padx=5, pady=5)
+button_stop.grid(row=3, column=8, padx=5, pady=5)
+button_enter.grid(row=3, column=9, padx=5, pady=5)
+
+#creating row 4 buttons
+button_semicolon = Button(keyboard, bg = "#eee", text = ";", width = 4, font = ("arial", 20, "bold"))
+button_colon = Button(keyboard, bg = "#eee", text = ":", width = 4, font = ("arial", 20, "bold"))
+button_quote = Button(keyboard, bg = "#eee", text = "'", width = 4, font = ("arial", 20, "bold"))
+button_doubleqoute = Button(keyboard, bg = "#eee", text = "''", width = 4, font = ("arial", 20, "bold"))
+button_qmark = Button(keyboard, bg = "#eee", text = "?", width = 4, font = ("arial", 20, "bold"))
+button_slash = Button(keyboard, bg = "#eee", text = "/", width = 4, font = ("arial", 20, "bold"))
+button_reverseslash = Button(keyboard, bg = "#eee", text = "\ ", width = 4, font = ("arial", 20, "bold"))
+button_at = Button(keyboard, bg = "#eee", text = "@", width = 4, font = ("arial", 20, "bold"))
+button_hash = Button(keyboard, bg = "#eee", text = "#", width = 4, font = ("arial", 20, "bold"))
+button_and = Button(keyboard, bg = "#eee", text = "&", width = 4, font = ("arial", 20, "bold"))
+
+#positioning row 4 buttons
+button_semicolon.grid(row=4, column=0, padx=5, pady=5)
+button_colon.grid(row=4, column=1, padx=5, pady=5)
+button_quote.grid(row=4, column=2, padx=5, pady=5)
+button_doubleqoute.grid(row=4, column=3, padx=5, pady=5)
+button_qmark.grid(row=4, column=4, padx=5, pady=5)
+button_slash.grid(row=4, column=5, padx=5, pady=5)
+button_reverseslash.grid(row=4, column=6, padx=5, pady=5)
+button_at.grid(row=4, column=7, padx=5, pady=5)
+button_hash.grid(row=4, column=8, padx=5, pady=5)
+button_and.grid(row=4, column=9, padx=5, pady=5)
 
 keyboard.mainloop()     
