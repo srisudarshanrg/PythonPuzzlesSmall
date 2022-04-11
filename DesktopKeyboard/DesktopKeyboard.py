@@ -74,4 +74,16 @@ button_j.grid(row=2, column=7, padx=5, pady=5)
 button_k.grid(row=2, column=8, padx=5, pady=5)
 button_l.grid(row=2, column=9, padx=5, pady=5)
 
+#creating row 3 buttons
+button_shift = Button(keyboard, bg = "#eee", text = "Shift", width=4, font=("arial", 14, "bold"))
+button_z = Button(keyboard, bg = "#eee", text = "w", width=4, font=("arial", 20, "bold"))
+button_x = Button(keyboard, bg = "#eee", text = "e", width=4, font=("arial", 20, "bold"))
+button_c = Button(keyboard, bg = "#eee", text = "r", width=4, font=("arial", 20, "bold"))
+button_v = Button(keyboard, bg = "#eee", text = "t", width=4, font=("arial", 20, "bold"))
+button_b = Button(keyboard, bg = "#eee", text = "y", width=4, font=("arial", 20, "bold"))
+button_n = Button(keyboard, bg = "#eee", text = "u", width=4, font=("arial", 20, "bold"))
+button_m = Button(keyboard, bg = "#eee", text = "i", width=4, font=("arial", 20, "bold"))
+button_comma = Button(keyboard, bg = "#eee", text = "o", width=4, font=("arial", 20, "bold"))
+button_stop = Button(keyboard, bg = "#eee", text = "p", width=4, font=("arial", 20, "bold"))
+
 keyboard.mainloop()
