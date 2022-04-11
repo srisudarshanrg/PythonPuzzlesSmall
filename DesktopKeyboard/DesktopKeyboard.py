@@ -51,7 +51,7 @@ button_p.grid(row=1, column=9, padx=5, pady=5)
 
 #creating row 2 buttons
 caps = PhotoImage(file=f"{img_dir}\DesktopKeyboard\caps_lock.png")
-button_caps = Button(keyboard, bg="#eee", image = caps)
+button_caps = Button(keyboard, bg="#eee", image = caps
 button_a = Button(keyboard, bg = "#eee", text = "a", width=4, font=("arial", 20, "bold"))
 button_s = Button(keyboard, bg = "#eee", text = "s", width=4, font=("arial", 20, "bold"))
 button_d = Button(keyboard, bg = "#eee", text = "d", width=4, font=("arial", 20, "bold"))
@@ -76,14 +76,19 @@ button_l.grid(row=2, column=9, padx=5, pady=5)
 
 #creating row 3 buttons
 button_shift = Button(keyboard, bg = "#eee", text = "Shift", width=4, font=("arial", 14, "bold"))
-button_z = Button(keyboard, bg = "#eee", text = "w", width=4, font=("arial", 20, "bold"))
-button_x = Button(keyboard, bg = "#eee", text = "e", width=4, font=("arial", 20, "bold"))
-button_c = Button(keyboard, bg = "#eee", text = "r", width=4, font=("arial", 20, "bold"))
-button_v = Button(keyboard, bg = "#eee", text = "t", width=4, font=("arial", 20, "bold"))
-button_b = Button(keyboard, bg = "#eee", text = "y", width=4, font=("arial", 20, "bold"))
-button_n = Button(keyboard, bg = "#eee", text = "u", width=4, font=("arial", 20, "bold"))
-button_m = Button(keyboard, bg = "#eee", text = "i", width=4, font=("arial", 20, "bold"))
-button_comma = Button(keyboard, bg = "#eee", text = "o", width=4, font=("arial", 20, "bold"))
-button_stop = Button(keyboard, bg = "#eee", text = "p", width=4, font=("arial", 20, "bold"))
+button_z = Button(keyboard, bg = "#eee", text = "z", width=4, font=("arial", 20, "bold"))
+button_x = Button(keyboard, bg = "#eee", text = "x", width=4, font=("arial", 20, "bold"))
+button_c = Button(keyboard, bg = "#eee", text = "c", width=4, font=("arial", 20, "bold"))
+button_v = Button(keyboard, bg = "#eee", text = "v", width=4, font=("arial", 20, "bold"))
+button_b = Button(keyboard, bg = "#eee", text = "b", width=4, font=("arial", 20, "bold"))
+button_n = Button(keyboard, bg = "#eee", text = "n", width=4, font=("arial", 20, "bold"))
+button_m = Button(keyboard, bg = "#eee", text = "m", width=4, font=("arial", 20, "bold"))
+button_comma = Button(keyboard, bg = "#eee", text = ",", width=4, font=("arial", 20, "bold"))
+button_stop = Button(keyboard, bg = "#eee", text = ".", width=4, font=("arial", 20, "bold"))
 
-keyboard.mainloop()
+#positioning row 3 buttons
+button_shift.grid(row=3, column=0, columnspan=2, padx=5, pady=5)
+button_z.grid(row=3, column=2, padx=5, pady=5)
+button_x.grid(row=3, column=3, padx=5, pady=5)
+
+keyboard.mainloop()     
