@@ -143,7 +143,7 @@ button_b = Button(keyboard, bg = "#eee", text = "b", width=4, font=("arial", 20,
 button_n = Button(keyboard, bg = "#eee", text = "n", width=4, font=("arial", 20, "bold"), command = lambda: letters("n"))
 button_m = Button(keyboard, bg = "#eee", text = "m", width=4, font=("arial", 20, "bold"), command = lambda: letters("m"))
 button_enter = Button(keyboard, bg = "#eee", text = "Tab", width=4, font=("arial", 20, "bold"), command = lambda: tab())
-button_stop = Button(keyboard, bg = "#eee", text = ".", width=4, font=("arial", 20, "bold"))
+button_stop = Button(keyboard, bg = "#eee", text = ".", width=4, font=("arial", 20, "bold"), command = lambda: letters("."))
 
 #positioning row 3 buttons
 button_shift.grid(row=3, column=0, padx=5, pady=5)
