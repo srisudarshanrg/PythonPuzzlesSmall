@@ -7,8 +7,9 @@ import time
 
 #create screen
 keyboard = Tk()
-keyboard.geometry("930x650")
+keyboard.geometry("930x585")
 keyboard.title("Desktop Keyboard")
+keyboard.resizable(0, 0)
 menu_bar = Menu(keyboard)
 keyboard.configure(bg="skyblue", menu=menu_bar)
 
@@ -17,7 +18,7 @@ img_dir = os.getcwd()
 icon = PhotoImage(file=f"{img_dir}\DesktopKeyboard\paint.png")
 keyboard.iconphoto(False, icon)
 
-#create function for numbers and letters
+#create functions for the buttons   
 def letters(item):
     global expression
     expression = expression + str(item)
@@ -31,6 +32,21 @@ def letter_clear():
 def tab():
     global expression
     expression = expression + "\t"
+    var.set(expression)
+
+def space():
+    global expression
+    expression = expression + " "
+    var.set(expression)
+
+def caps():
+    global expression
+    expression = expression.upper()
+    var.set(expression)
+
+def calculate():
+    global expression
+    expression = str(eval(expression))
     var.set(expression)
 
 expression = ""        
@@ -93,8 +109,8 @@ button_o.grid(row=1, column=8, padx=5, pady=5)
 button_p.grid(row=1, column=9, padx=5, pady=5)
 
 #creating row 2 buttons
-caps = PhotoImage(file=f"{img_dir}\DesktopKeyboard\caps_lock.png")
-button_caps = Button(keyboard, bg="#eee", image = caps)
+caps_lock = PhotoImage(file=f"{img_dir}\DesktopKeyboard\caps_lock.png")
+button_caps = Button(keyboard, bg="#eee", image = caps_lock, command = lambda: caps())
 button_a = Button(keyboard, bg = "#eee", text = "a", width=4, font=("arial", 20, "bold"), command = lambda: letters("a"))
 button_s = Button(keyboard, bg = "#eee", text = "s", width=4, font=("arial", 20, "bold"), command = lambda: letters("s"))
 button_d = Button(keyboard, bg = "#eee", text = "d", width=4, font=("arial", 20, "bold"), command = lambda: letters("d"))
@@ -170,24 +186,24 @@ button_add = Button(keyboard, bg = "#eee", text = "+", width = 4, font = ("arial
 button_sub = Button(keyboard, bg = "#eee", text = "-", width = 4, font = ("arial", 20, "bold"), command = lambda: letters("-"))
 button_mply = Button(keyboard, bg = "#eee", text = "*", width = 4, font = ("arial", 20, "bold"), command = lambda: letters("*"))
 button_dvd = Button(keyboard, bg = "#eee", text = "/", width = 4, font = ("arial", 20, "bold"), command = lambda: letters("/"))
-button_dlr = Button(keyboard, bg = "#eee", text = "$", width = 4, font = ("arial", 20, "bold"), command = lambda: letters("$"))
+button_equal2 = Button(keyboard, bg = "#eee", text = "==", width = 4, font = ("arial", 20, "bold"), command = lambda: letters("$"))
 button_brc1 = Button(keyboard, bg = "#eee", text = "()", width = 4, font = ("arial", 20, "bold"), command = lambda: letters("()"))
 button_brc2 = Button(keyboard, bg = "#eee", text = "{}", width = 4, font = ("arial", 20, "bold"), command = lambda: letters("{}"))
 button_brc3 = Button(keyboard, bg = "#eee", text = "[]", width = 4, font = ("arial", 20, "bold"), command = lambda: letters("[]"))
 button_per = Button(keyboard, bg = "#eee", text = "%", width = 4, font = ("arial", 20, "bold"), command = lambda: letters("%"))
-button_sh6 = Button(keyboard, bg = "#eee", text = "^", width = 4, font = ("arial", 20, "bold"), command = lambda: letters("^"))
+button_equal = Button(keyboard, bg = "#eee", text = "=", width = 4, font = ("arial", 20, "bold"), command = lambda: calculate())
 
 #positioning row 5 buttons
 button_add.grid(row=5, column=0, padx=5, pady=5)
 button_sub.grid(row=5, column=1, padx=5, pady=5)
 button_mply.grid(row=5, column=2, padx=5, pady=5)
 button_dvd.grid(row=5, column=3, padx=5, pady=5)
-button_dlr.grid(row=5, column=4, padx=5, pady=5)
+button_equal2.grid(row=5, column=4, padx=5, pady=5)
 button_brc1.grid(row=5, column=5, padx=5, pady=5)
 button_brc2.grid(row=5, column=6, padx=5, pady=5)
 button_brc3.grid(row=5, column=7, padx=5, pady=5)
 button_per.grid(row=5, column=8, padx=5, pady=5)
-button_sh6.grid(row=5, column=9, padx=5, pady=5)
+button_equal.grid(row=5, column=9, padx=5, pady=5)
 
 #creating row 6 buttons - numbers
 button_1 = Button(keyboard, bg = "#eee", text = "1", width = 4, font = ("arial", 20, "bold"), command = lambda: letters("1"))
@@ -215,7 +231,7 @@ button_0.grid(row=6, column=9, padx=5, pady=5)
 
 #creating row 7 buttons
 button_ctrl = Button(keyboard, bg = "#eee", text = "Ctrl", width = 9, font = ("arial", 20, "bold"))
-button_space = Button(keyboard, bg = "#eee", text = "Space", width=25, font = ("arial", 20, "bold"))
+button_space = Button(keyboard, bg = "#eee", text = "Space", width=25, font = ("arial", 20, "bold"), command = lambda: space())
 button_alt = Button(keyboard, bg = "#eee", text = "Alt", width = 4, font = ("arial", 20, "bold"))
 button_clear = Button(keyboard, bg = "#eee", text = "Clear All", width = 8, font = ("arial", 20, "bold"), command = lambda: letter_clear())
 
