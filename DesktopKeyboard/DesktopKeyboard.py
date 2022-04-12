@@ -186,12 +186,12 @@ button_add = Button(keyboard, bg = "#eee", text = "+", width = 4, font = ("arial
 button_sub = Button(keyboard, bg = "#eee", text = "-", width = 4, font = ("arial", 20, "bold"), command = lambda: letters("-"))
 button_mply = Button(keyboard, bg = "#eee", text = "*", width = 4, font = ("arial", 20, "bold"), command = lambda: letters("*"))
 button_dvd = Button(keyboard, bg = "#eee", text = "/", width = 4, font = ("arial", 20, "bold"), command = lambda: letters("/"))
-button_equal2 = Button(keyboard, bg = "#eee", text = "==", width = 4, font = ("arial", 20, "bold"), command = lambda: letters("$"))
+button_equal2 = Button(keyboard, bg = "#eee", text = "=", width = 4, font = ("arial", 20, "bold"), command = lambda: letters("="))
 button_brc1 = Button(keyboard, bg = "#eee", text = "()", width = 4, font = ("arial", 20, "bold"), command = lambda: letters("()"))
 button_brc2 = Button(keyboard, bg = "#eee", text = "{}", width = 4, font = ("arial", 20, "bold"), command = lambda: letters("{}"))
 button_brc3 = Button(keyboard, bg = "#eee", text = "[]", width = 4, font = ("arial", 20, "bold"), command = lambda: letters("[]"))
 button_per = Button(keyboard, bg = "#eee", text = "%", width = 4, font = ("arial", 20, "bold"), command = lambda: letters("%"))
-button_equal = Button(keyboard, bg = "#eee", text = "=", width = 4, font = ("arial", 20, "bold"), command = lambda: calculate())
+button_equal = Button(keyboard, bg = "#eee", text = "==", width = 4, font = ("arial", 20, "bold"), command = lambda: calculate())
 
 #positioning row 5 buttons
 button_add.grid(row=5, column=0, padx=5, pady=5)
