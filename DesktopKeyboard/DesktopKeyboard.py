@@ -80,7 +80,7 @@ def help():
     button_help.grid(row=1, column=2, padx=5, pady=3)
     #create text box
     global text_help
-    text_help = Label(root, font = ("Calibri", 20, "bold"), width = 75, height = 15, wraplength=1000)
+    text_help = Label(root, font = ("Rockwell", 18), width = 75, height = 15, wraplength=1000)
     text_help.grid(row=2, column=1, padx=20, pady=20)
     #create a close button
     button_close = Button(root, text = "Close..", font = (35), command = lambda: root.destroy())
@@ -89,8 +89,29 @@ def help():
 def help_box():
     entry_search = entry_help.get().lower()
     if "how to use" in entry_search:
-        answer = "- To enter a value into the entry space, just click on the button and it will be reflected on the entry space."
+        answer = "**RELATED RESULTS** \n\n- To enter a value into the entry space, just click on the button and it will be reflected on the entry space."
         text_help.configure(text = answer)
+    elif "operations" in entry_search:
+        answer1 = "**RELATED RESULTS** \n\n- To enter a value into the entry space, just click on the button and it will be reflected on the entry space.\n\n-To perform arithmetic calculations enter the numbers and operators and then click on the '==' button."
+        text_help.configure(text = answer)
+    elif "==" in entry_search:
+        answer2 = "**RELATED RESULTS** \n\n- To perform arithmetic calculations enter the numbers and operators and then click on the '==' button."
+        text_help.configure(text = answer2)
+    elif "cut" in entry_search:
+        answer3 = "**RELATED RESULTS** \n\n- The cut, copy and paste command are rigt now not working. We are still working on those commands. Please bear with us :("
+        text_help.configure(text = answer3)
+    elif "copy" in entry_search:
+        answer4 = "**RELATED RESULTS** \n\n- The cut, copy and paste command are rigt now not working. We are still working on those commands. Please bear with us :("
+        text_help.configure(text = answer4)
+    elif "paste" in entry_search:
+        answer5 = "**RELATED RESULTS** \n\n- The cut, copy and paste command are rigt now not working. We are still working on those commands. Please bear with us :("
+        text_help.configure(text = answer5)
+    elif "clear" in entry_search:
+        answer6 = "**RELATED RESULTS** \n\n- The clear command clears all the data you have entered in the entry space. We will soon come up with a command that backspaces or delets the character in front/back of the cursor.\n\n- Enter 'clear help' in the help search box to clear the help box."
+        text_help.configure(text = answer6)
+    else:
+        answer7 = "Sorry, but the search you are looking for is not yet updated in the help window or is invalid :("
+        text_help.configure(text = answer7)
 
 expression = ""        
 
