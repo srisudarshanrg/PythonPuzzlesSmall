@@ -50,9 +50,9 @@ def calculate():
     expression = str(eval(expression))
     try:
         var.set(expression)
-    except ValueError:
-        messagebox.showerror("Value Invalid", "For calculation please enter an integer value.")
     except NameError:
+        messagebox.showerror("Value Invalid", "For calculation please enter an integer value.")
+    except ValueError:
         messagebox.showerror("Value Invalid", "For calculation please enter an integer value.")
 
 def help():
@@ -93,7 +93,7 @@ def help_box():
         text_help.configure(text = answer)
     elif "operations" in entry_search:
         answer1 = "**RELATED RESULTS** \n\n- To enter a value into the entry space, just click on the button and it will be reflected on the entry space.\n\n-To perform arithmetic calculations enter the numbers and operators and then click on the '==' button."
-        text_help.configure(text = answer)
+        text_help.configure(text = answer1)
     elif "==" in entry_search:
         answer2 = "**RELATED RESULTS** \n\n- To perform arithmetic calculations enter the numbers and operators and then click on the '==' button."
         text_help.configure(text = answer2)
@@ -109,9 +109,12 @@ def help_box():
     elif "clear" in entry_search:
         answer6 = "**RELATED RESULTS** \n\n- The clear command clears all the data you have entered in the entry space. We will soon come up with a command that backspaces or delets the character in front/back of the cursor.\n\n- Enter 'clear help' in the help search box to clear the help box."
         text_help.configure(text = answer6)
-    else:
-        answer7 = "Sorry, but the search you are looking for is not yet updated in the help window or is invalid :("
+    elif entry_help.get() == "":
+        answer7 = "Please enter what help you need."
         text_help.configure(text = answer7)
+    else:
+        answer8 = "Sorry, but the search you are looking for is not yet updated in the help window or is invalid :("
+        text_help.configure(text = answer8)
 
 expression = ""        
 
@@ -120,6 +123,12 @@ class web_help():
     def __init__(self):
         website = "https://support.microsoft.com/en-us/windows/use-the-on-screen-keyboard-osk-to-type-ecbb5e08-5b4e-d8c8-f794-81dbf896267a#:~:text=Go%20to%20Start%20%2C%20then%20select%20Settings%20%3E%20Ease%20of%20Access%20%3E,screen%20until%20you%20close%20it."
         webbrowser.open(website)
+
+#close application: line 144; Menu Bar; keyboard_close_menu
+def exit_screen():
+    close_time = datetime.now().strftime("%H:%M")
+    messagebox.showinfo("Close Screen", f"Time: {close_time}\nClosing Window...")
+    exit()
 
 #create menu bar
 edit_menu = Menu(menu_bar, tearoff=False)   #menu bar already created at the starting: line 10; line 11
@@ -139,11 +148,11 @@ help_menu.configure(bg="DodgerBlue2")
 
 keyboard_close_menu = Menu(menu_bar, tearoff = False)
 menu_bar.add_cascade(label = "Close", menu = keyboard_close_menu)
-keyboard_close_menu.add_command(label = "Close Application", command = lambda: exit())
+keyboard_close_menu.add_command(label = "Close Application", command = lambda: exit_screen())
 
 #create time bar
 date = datetime.now().strftime("%H:%M")
-label_date = Label(keyboard, text = f"Time: {date}", font = ("arial", 18, "bold"))
+label_date = Label(keyboard, text = f"Open Time: {date}", font = ("arial", 14, "bold"))
 label_date.grid(row=0, column=0, columnspan=2, padx=5, pady=5)
 
 #create string to get values
