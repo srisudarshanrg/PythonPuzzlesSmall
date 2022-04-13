@@ -60,7 +60,7 @@ def help():
     global img_dir
     global root
     root = Tk()
-    root.geometry("1100x700")
+    root.geometry("1100x615")
     root.title("Help")
     menu_help = Menu(root)
     root.configure(bg="#FF6103", menu=menu_help)
