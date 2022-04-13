@@ -1,4 +1,5 @@
 from tkinter import *
+from tkinter import messagebox
 from PIL import Image,ImageTk
 from datetime import datetime
 import os
@@ -47,7 +48,49 @@ def caps():
 def calculate():
     global expression
     expression = str(eval(expression))
-    var.set(expression)
+    try:
+        var.set(expression)
+    except ValueError:
+        messagebox.showerror("Value Invalid", "For calculation please enter an integer value.")
+    except NameError:
+        messagebox.showerror("Value Invalid", "For calculation please enter an integer value.")
+
+def help():
+    #create screen
+    global img_dir
+    global root
+    root = Tk()
+    root.geometry("1100x700")
+    root.title("Help")
+    menu_help = Menu(root)
+    root.configure(bg="#FF6103", menu=menu_help)
+    #create menu bar
+    close_menu = Menu(menu_help, tearoff = False)
+    menu_help.add_cascade(label = "Close", menu = close_menu)
+    close_menu.add_command(label = "Close Help Window", command = lambda: root.destroy())
+    close_menu.add_command(label = "Close Entire Application", command = lambda: exit())
+    #create help frame
+    global entry_help
+    global button_help
+    help_frame = LabelFrame(root, text = "Enter what help you need:")
+    help_frame.grid(row=1, column=1, padx=20, pady=10)
+    entry_help = Entry(help_frame, font = ("arial", 30, "bold"))
+    entry_help.grid(row=1, column=1, padx=5, pady=5)
+    button_help = Button(help_frame, text = "Search Help", command = lambda: help_box())
+    button_help.grid(row=1, column=2, padx=5, pady=3)
+    #create text box
+    global text_help
+    text_help = Label(root, font = ("Calibri", 20, "bold"), width = 75, height = 15, wraplength=1000)
+    text_help.grid(row=2, column=1, padx=20, pady=20)
+    #create a close button
+    button_close = Button(root, text = "Close..", font = (35), command = lambda: root.destroy())
+    button_close.grid(row=3, column=1, padx=20, pady=5)
+
+def help_box():
+    entry_search = entry_help.get().lower()
+    if "how to use" in entry_search:
+        answer = "- To enter a value into the entry space, just click on the button and it will be reflected on the entry space."
+        text_help.configure(text = answer)
 
 expression = ""        
 
@@ -58,7 +101,7 @@ class web_help():
         webbrowser.open(website)
 
 #create menu bar
-edit_menu = Menu(menu_bar)   #menu bar already created at the starting: line 10; line 11
+edit_menu = Menu(menu_bar, tearoff=False)   #menu bar already created at the starting: line 10; line 11
 menu_bar.add_cascade(label="Edit", menu=edit_menu)
 edit_menu.add_command(label="Copy")
 edit_menu.add_command(label="Cut")
@@ -66,12 +109,16 @@ edit_menu.add_separator()
 edit_menu.add_command(label="Paste")
 edit_menu.configure(bg="skyblue")
 
-help_menu = Menu(menu_bar)
+help_menu = Menu(menu_bar, tearoff = False)
 menu_bar.add_cascade(label="Help", menu=help_menu)
-help_menu.add_command(label="Search Help")
+help_menu.add_command(label="Search Help", command = lambda: help())
 help_menu.add_separator()
 help_menu.add_command(label="Web Help", command = lambda: web_help())
 help_menu.configure(bg="DodgerBlue2")
+
+keyboard_close_menu = Menu(menu_bar, tearoff = False)
+menu_bar.add_cascade(label = "Close", menu = keyboard_close_menu)
+keyboard_close_menu.add_command(label = "Close Application", command = lambda: exit())
 
 #create time bar
 date = datetime.now().strftime("%H:%M")
