@@ -1,3 +1,4 @@
+from fileinput import close
 from tkinter import *
 from tkinter import messagebox
 from PIL import Image,ImageTk
@@ -65,7 +66,8 @@ edit_menu.add_command(label="Cut", command = lambda: cut_score)
 
 close_menu = Menu(menu_bar, tearoff=False)
 menu_bar.add_cascade(label="Close", menu=close_menu)
-close_menu.add_command(label="Close Window", command = game_close())
+close_menu.add_command(label="Close Window", command = lambda: game.destroy())
+close_menu.add_checkbutton(label="Save Scores and Close", command = lambda: game_close())
 
 #create the game labels, buttons and text boxes
 label_game = Label(game, text = "Choose:", fg = "blue3", font = ("rockwell", 25, "bold"))
