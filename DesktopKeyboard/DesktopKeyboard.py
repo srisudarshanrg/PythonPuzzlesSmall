@@ -69,6 +69,10 @@ def help():
     menu_help.add_cascade(label = "Close", menu = close_menu)
     close_menu.add_command(label = "Close Help Window", command = lambda: root.destroy())
     close_menu.add_command(label = "Close Entire Application", command = lambda: exit())
+
+    web_help_menu = Menu(menu_help, tearoff = False )
+    menu_help.add_cascade(label = "Help Options", menu = web_help_menu)
+    web_help_menu.add_command(label = "Web Help", command = lambda: web_help())
     #create help frame
     global entry_help
     global button_help
