@@ -111,7 +111,7 @@ def help_box():
         answer5 = "**RELATED RESULTS** \n\n- The cut, copy and paste command are rigt now not working. We are still working on those commands. Please bear with us :("
         text_help.configure(text = answer5)
     elif "clear" in entry_search:
-        answer6 = "**RELATED RESULTS** \n\n- The clear command clears all the data you have entered in the entry space. We will soon come up with a command that backspaces or delets the character in front/back of the cursor.\n\n- Enter 'clear help' in the help search box to clear the help box."
+        answer6 = "**RELATED RESULTS** \n\n- The clear command clears all the data you have entered in the entry space. We will soon come up with a command that backspaces or deletes the character in front/back of the cursor.\n\n- Enter 'clear help' in the help search box to clear the help box."
         text_help.configure(text = answer6)
     elif entry_help.get() == "":
         answer7 = "Please enter what help you need."
