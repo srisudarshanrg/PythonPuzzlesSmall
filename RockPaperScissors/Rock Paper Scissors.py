@@ -7,6 +7,12 @@ import os
 
 img_dir = os.getcwd()
 
+options = [
+    "Rock",
+    "Paper",
+    "Scissors"
+]
+
 #create screen
 game = Tk()
 game.geometry("700x700")
@@ -19,17 +25,70 @@ game.configure(bg="skyblue", menu=menu_bar)
 user_score = 0
 comp_score = 0
 
+class clear_scoreboard():
+    def __init__(self):
+        global user_score
+        global comp_score
+        user_score=0
+        comp_score=0
+        label_score.configure(text = "")
+
 class rock():
     def __init__(self):
-        pass
+        comp_choice = random.choice(options)
+        if comp_choice == "Rock":
+            global user_score
+            global comp_score
+            user_score+=1
+            comp_score+=1
+            score1 = f"You chose rock and computer chose rock.\n\nYour Score: {user_score}\nComputer Score: {comp_score}"
+            label_score.configure(text = score1, font = ("Rockwell", 18))
+        elif comp_choice == "Scissors":
+            user_score+=1
+            score2 = f"You chose rock and computer chose scissors.\n\nYour Score: {user_score}\nComputer Score: {comp_score}"
+            label_score.configure(text = score2, font = ("Rockwell", 18))
+        elif comp_choice == "Paper":
+            comp_score+=1
+            score3 = f"You chose rock and computer chose paper.\n\nYour Score: {user_score}\nComputer Score: {comp_score}"
+            label_score.configure(text = score3, font = ("Rockwell", 18))
 
 class paper():
     def __init__(self):
-        pass
+        comp_choice = random.choice(options)
+        if comp_choice == "Rock":
+            global user_score
+            global comp_score
+            user_score+=1
+            score1 = f"You chose paper and computer chose rock.\n\nYour Score: {user_score}\nComputer Score: {comp_score}"
+            label_score.configure(text = score1, font = ("Rockwell", 18))
+        elif comp_choice == "Scissors":
+            comp_score+=1
+            score2 = f"You chose paper and computer chose scissors.\n\nYour Score: {user_score}\nComputer Score: {comp_score}"
+            label_score.configure(text = score2, font = ("Rockwell", 18))
+        elif comp_choice == "Paper":
+            user_score+=1
+            comp_score+=1
+            score3 = f"You chose paper and computer chose paper.\n\nYour Score: {user_score}\nComputer Score: {comp_score}"
+            label_score.configure(text = score3, font = ("Rockwell", 18))
 
 class scissors():
     def __init__(self):
-        pass
+        comp_choice = random.choice(options)
+        if comp_choice == "Rock":
+            global user_score
+            global comp_score
+            comp_score+=1
+            score1 = f"You chose scissors and computer chose rock.\n\nYour Score: {user_score}\nComputer Score: {comp_score}"
+            label_score.configure(text = score1, font = ("Rockwell", 18))
+        elif comp_choice == "Scissors":
+            user_score+=1
+            comp_score+=1
+            score2 = f"You chose scissors and computer chose scissors.\n\nYour Score: {user_score}\nComputer Score: {comp_score}"
+            label_score.configure(text = score2, font = ("Rockwell", 18))
+        elif comp_choice == "Paper":
+            user_score+=1
+            score3 = f"You chose scissors and computer chose paper.\n\nYour Score: {user_score}\nComputer Score: {comp_score}"
+            label_score.configure(text = score3, font = ("Rockwell", 18))
 
 class save_file():
     def __init__(self):
@@ -81,6 +140,9 @@ button_paper.grid(row=1, column=1, padx=5, pady=10)
 
 button_scissor = Button(game, text = "Scissors", bg = "#CD2626", relief = "groove", font = ("rockwell", 20, "bold"), command=lambda: scissors())
 button_scissor.grid(row=1, column=2, padx=5, pady=10)
+
+button_clear = Button(game, text = "Clear Scoreboard", bg = "#E3CF57", relief = "groove", font = ("Rockwell", 20, "bold"), command = lambda: clear_scoreboard())
+button_clear.grid(row=1, column=3, padx=5, pady=10)
 
 label_score = Label(game, bg = "#FFD700", borderwidth=2, relief="groove", fg = "black", width=41, height = 10,  font = ("rockwell", 20))
 label_score.grid(row=2, column=0, rowspan=4, columnspan=15, padx=15, pady=7)
