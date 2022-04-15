@@ -50,6 +50,7 @@ class copy_score():
 class cut_score():
     def __init__(self):
         pass
+        pass
 
 #create menu bar
 file_menu = Menu(menu_bar, tearoff=False)
@@ -63,6 +64,8 @@ edit_menu = Menu(menu_bar, tearoff=False)
 menu_bar.add_cascade(label="Edit", menu=edit_menu)
 edit_menu.add_command(label="Copy", command = lambda: copy_score())
 edit_menu.add_command(label="Cut", command = lambda: cut_score)
+
+dddd = "me"
 
 close_menu = Menu(menu_bar, tearoff=False)
 menu_bar.add_cascade(label="Close", menu=close_menu)
