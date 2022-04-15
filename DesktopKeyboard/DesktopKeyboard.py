@@ -16,7 +16,7 @@ keyboard.configure(bg="skyblue", menu=menu_bar)
 
 img_dir = os.getcwd()
 
-icon = PhotoImage(file=f"{img_dir}\DesktopKeyboard\paint.png")
+icon = PhotoImage(file="F:\Sri\Git\PythonPuzzles\DesktopKeyboard\paint.png")
 keyboard.iconphoto(False, icon)
 
 #create functions for the buttons   
@@ -190,7 +190,7 @@ button_o.grid(row=1, column=8, padx=5, pady=5)
 button_p.grid(row=1, column=9, padx=5, pady=5)
 
 #creating row 2 buttons
-caps_lock = PhotoImage(file=f"{img_dir}\DesktopKeyboard\caps_lock.png")
+caps_lock = PhotoImage(file="F:\Sri\Git\PythonPuzzles\DesktopKeyboard\caps_lock.png")
 button_caps = Button(keyboard, bg="#eee", image = caps_lock, command = lambda: caps())
 button_a = Button(keyboard, bg = "#eee", text = "a", width=4, font=("arial", 20, "bold"), command = lambda: letters("a"))
 button_s = Button(keyboard, bg = "#eee", text = "s", width=4, font=("arial", 20, "bold"), command = lambda: letters("s"))
