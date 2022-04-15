@@ -1,7 +1,7 @@
-from fileinput import close
 from tkinter import *
 from tkinter import messagebox
 from PIL import Image,ImageTk
+import random
 import time
 import os
 
@@ -11,7 +11,7 @@ img_dir = os.getcwd()
 game = Tk()
 game.geometry("700x700")
 game.title("Rock Paper Scissors")
-photo = img_dir(f"\RockPaperScissors\Scissors.png")
+photo = PhotoImage(file = "F:\Sri\Git\PythonPuzzles\RockPaperScissors\Scissors.png")
 game.iconphoto(False, photo)
 menu_bar = Menu(game)
 game.configure(bg="skyblue", menu=menu_bar)
@@ -50,7 +50,6 @@ class copy_score():
 class cut_score():
     def __init__(self):
         pass
-        pass
 
 #create menu bar
 file_menu = Menu(menu_bar, tearoff=False)
@@ -64,8 +63,6 @@ edit_menu = Menu(menu_bar, tearoff=False)
 menu_bar.add_cascade(label="Edit", menu=edit_menu)
 edit_menu.add_command(label="Copy", command = lambda: copy_score())
 edit_menu.add_command(label="Cut", command = lambda: cut_score)
-
-dddd = "me"
 
 close_menu = Menu(menu_bar, tearoff=False)
 menu_bar.add_cascade(label="Close", menu=close_menu)
