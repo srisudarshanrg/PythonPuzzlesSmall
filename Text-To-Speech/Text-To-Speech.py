@@ -16,15 +16,10 @@ translator.iconphoto(False, photo)
 class text_to_speech():
     def __init__(self):
         text = entry_text.get()
-        if entry_text1.get() == "":
-            speech = gTTS(text = text)
-            speech.save("Text-to-Speech.mp3")
-            os.system("Text-to-Speech.mp3")
-        elif entry_text1.get() == str(object):
-            lang = entry_text1.get()
-            speech = gTTS(text = text, lang=lang)
-            speech.save("Text-to-Speech.mp3")
-            os.system("Text-to-Speech.mp3")
+        lang = entry_text1.get()
+        speech = gTTS(text=text, lang=lang)
+        speech.save("Text-to-Speech.mp3")
+        os.system("Text-to-Speech.mp3")
 
 class change_lang():
     def __init__(self):
@@ -59,12 +54,39 @@ class change_lang():
         label_do = Label(second_frame, text = "Choose the language - To change the language type the language's code in the language entry box.", font = ("Rockwell", 15, "bold"))
         label_do.pack(padx=16, pady=10)
         #$show language options
-        label_langs = Label(second_frame, text = languages, font = ("Rockwell", 15, "bold"))
+        label_langs = Label(second_frame, text = languages, font = ("Rockwell", 15, "italic"))
         label_langs.pack(padx=16, pady=10)
 
 class open_audio():
     def __init__(self):
         os.system("Text-to-Speech.mp3")
+
+class make_textfile():
+    def __init__(self):
+        #create text file screen
+        textfile = Tk()
+        textfile.geometry("1500x900")
+        textfile.title("*Untitled*")
+        textfile.iconbitmap("F:\Sri\Git\PythonPuzzles\Text-To-Speech\Text.ico")
+        #create menu bar for screen
+        menu_bar1 = Menu(textfile)
+        textfile.configure(bg = "#eee", menu = menu_bar1)
+        
+        #creating menu bar components
+        file_menu = Menu(menu_bar1, tearoff=False)
+        menu_bar1.add_cascade(label = "File", menu = file_menu)
+        file_menu.add_command(label = "New File")
+        file_menu.add_command(label = "Save")
+        file_menu.add_command(label = "Close Window", command = lambda: textfile.destroy())
+
+        edit_menu = Menu(menu_bar1, tearoff = False)
+        menu_bar1.add_cascade(label = "Edit", menu = edit_menu)
+        edit_menu.add_command(label = "Copy")
+        edit_menu.add_cascade(label = "Cut")
+        edit_menu.add_separator()
+        edit_menu.add_command(label = "Paste")
+
+        textfile.mainloop()
 
 #menu bar 
 menu_bar = Menu(translator)
@@ -74,7 +96,7 @@ open_menu = Menu(menu_bar, tearoff = False)
 menu_bar.add_cascade(label = "Open", menu = open_menu)
 open_menu.add_command(label = "Open Audio File", command = lambda: open_audio())
 open_menu.add_separator()
-open_menu.add_command(label = "Make Entered Text as Text File")
+open_menu.add_command(label = "Make Entered Text as Text File", command = lambda: make_textfile())
 
 close_menu = Menu(menu_bar, tearoff = False)
 menu_bar.add_cascade(label = "Close", menu = close_menu)
@@ -94,11 +116,11 @@ button_enter = Button(label_frame, text = "Change text to speech", font = ("Rock
 button_enter.grid(row=1, column=2, padx=15, pady=10)
 
 #label frame 2 - To change language
-label_frame1 = LabelFrame(translator, text = "Enter Language (if want to change from english): ", font = ("Rockwell", 13, "bold"))
+label_frame1 = LabelFrame(translator, text = "Enter Language (enter the language's code): ", font = ("Rockwell", 13, "bold"))
 label_frame1.grid(row=1, column=0, padx=10, pady=10)
 label_frame1.configure(bg="skyblue")
 
-entry_text1 = Entry(label_frame1, width = 30, font = ("Rockwell", 18, "italic"))
+entry_text1 = Entry(label_frame1, text = "en", fg = "black", width = 30, font = ("Rockwell", 18, "italic"))
 entry_text1.grid(row=0, column=0, padx=15, pady=10, columnspan=4)
 
 button_change_lang = Button(translator, text = "Change Language Settings", font = ("Rockwell", 13, "bold"), command = lambda: change_lang())
