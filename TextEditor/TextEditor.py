@@ -12,4 +12,7 @@ main.geometry("1000x800")
 icon_main = PhotoImage(file = "F:\Sri\Git\PythonPuzzles\TextEditor\Textobot.png")
 main.iconphoto(False, icon_main)
 
+menu_bar = Menu(main)
+main.configure(menu=menu_bar)
+
 main.mainloop()
