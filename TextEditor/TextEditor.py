@@ -44,7 +44,7 @@ image_openfile = ImageTk.PhotoImage(Image.open("F:\\Sri\\Git\\PythonPuzzles\\Tex
 button_openfile = Button(main, image=image_openfile, relief = RIDGE, borderwidth=4, bg="red")
 button_openfile.grid(row=2, column=0, padx=430, pady=35)
 
-label_openfile = Label(main, text = "Open a File ☝", relief = FLAT, font = ("Rockwell", 15, "bold"))
+label_openfile = Label(main, text = "Open a File☝", relief = FLAT, font = ("Rockwell", 15, "bold"))
 label_openfile.grid(row=3, column=0, padx=430)
 
 main.mainloop()
