@@ -1,5 +1,7 @@
+from socket import timeout
 from tkinter import *
 from tkinter import messagebox
+from tkinter import filedialog, colorchooser
 from tkinter import ttk
 from PIL import Image, ImageTk
 from datetime import datetime
@@ -60,11 +62,51 @@ def progressbar():
         progressbar_newfile['value']=i
         loading.update_idletasks()
         label_progressbar.config(text=str(i) + "%" + " loaded")
-        time.sleep(0.05)
+        time.sleep(0.03)
+    
+    main.destroy()
+    loading.destroy()
     
     new = Tk()
     new.geometry("1000x700")
     new.title("*Untitled*")
+
+    menubar1 = Menu(new)
+    new.configure(menu=menubar1, bg="#eee")
+
+    notification.notify(title="New File Created",
+                        message="The new file has been created.",
+                        timeout=5)
+
+    messagebox.showinfo("New File Created", "The new file has been created.")
+
+    file_menu1 = Menu(menubar1, tearoff=False)
+    menubar1.add_cascade(label="File", menu=file_menu1)
+    file_menu1.add_command(label="New")
+    file_menu1.add_command(label="Open")
+    file_menu1.add_separator()
+    file_menu1.add_command(label="Close", command = lambda: new.destroy())
+    
+    edit_menu = Menu(menubar1, tearoff=False)
+    menubar1.add_cascade(label="Edit", menu=edit_menu)
+    edit_menu.add_command(label="Copy")
+    edit_menu.add_command(label="Cut")
+    edit_menu.add_separator()
+    edit_menu.add_command(label="Paste")
+
+    option_menu = Menu(menubar1, tearoff=False)
+    menubar1.add_cascade(label="Options", menu=option_menu)
+    option_menu.add_command(label="Change Font")
+    option_menu.add_command(label="Change Font Color")
+
+    help_menu = Menu(menubar1, tearoff=False)
+    menubar1.add_cascade(label="Help", menu=help_menu)
+    help_menu.add_command(label="Search Help")
+    help_menu.add_separator()
+    help_menu.add_command(label="Web Help")
+
+    frametext = Frame(new, height=670, width=990, bg="white")
+    frametext.grid(row=0, column=0, padx=5, pady=3)
 
 def open_file():
     pass
