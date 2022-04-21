@@ -1,7 +1,8 @@
-from socket import timeout
 from tkinter import *
 from tkinter import messagebox
-from tkinter import filedialog, colorchooser
+from tkinter import filedialog, colorchooser, font
+from tkinter.messagebox import *
+from tkinter.filedialog import *
 from tkinter import ttk
 from PIL import Image, ImageTk
 from datetime import datetime
@@ -55,7 +56,26 @@ def new_file():
     label_progressbar.pack(pady=10)
 
     button_newfile_progress = Button(frame, text = "Load New File", bg = "darkblue", fg = "white", font = ("Rockwell", 15, "bold"), command = lambda: progressbar())
-    button_newfile_progress.pack(pady=10)   
+    button_newfile_progress.pack(pady=10) 
+
+def choose_color():
+    color = colorchooser.askcolor(title="Choose a Color")
+    text_area.config(fg=color[1])
+
+def change_font(*args):
+    text_area.config(font=(font_name.get(), font_size.get()))
+
+def save_file():
+    pass
+
+def cut():
+    pass
+
+def copy():
+    pass
+
+def paste():
+    pass 
 
 def progressbar():
     for i in range(1, 101, 1):
@@ -68,7 +88,7 @@ def progressbar():
     loading.destroy()
     
     new = Tk()
-    new.geometry("1000x700")
+    new.geometry("1000x750")
     new.title("*Untitled*")
 
     menubar1 = Menu(new)
@@ -82,8 +102,9 @@ def progressbar():
 
     file_menu1 = Menu(menubar1, tearoff=False)
     menubar1.add_cascade(label="File", menu=file_menu1)
-    file_menu1.add_command(label="New")
-    file_menu1.add_command(label="Open")
+    file_menu1.add_command(label="New File")
+    file_menu1.add_command(label="Save File")
+    file_menu1.add_command(label="Open File")
     file_menu1.add_separator()
     file_menu1.add_command(label="Close", command = lambda: new.destroy())
     
@@ -97,6 +118,7 @@ def progressbar():
     option_menu = Menu(menubar1, tearoff=False)
     menubar1.add_cascade(label="Options", menu=option_menu)
     option_menu.add_command(label="Change Font")
+    option_menu.add_command(label="Change Font Size")
     option_menu.add_command(label="Change Font Color")
 
     help_menu = Menu(menubar1, tearoff=False)
@@ -105,8 +127,42 @@ def progressbar():
     help_menu.add_separator()
     help_menu.add_command(label="Web Help")
 
-    frametext = Frame(new, height=670, width=990, bg="white")
-    frametext.grid(row=0, column=0, padx=5, pady=3)
+    global font_name
+    font_name = StringVar(new)
+    font_name.set("Calibri")
+
+    global font_size
+    font_size = StringVar(new)
+    font_size.set("25")
+
+    global text_area
+    text_area = Text(new, font = (font_name.get(), font_size.get()), bd = 3)
+    text_area.grid(row=0, column=0, pady=5, padx=5)
+
+    scrollbar = Scrollbar(text_area)
+    new.grid_rowconfigure(0, weight=1)
+    new.grid_columnconfigure(0, weight=1)
+    text_area.grid(sticky=N + E + W + S)
+
+    scrollbar.pack(side=RIGHT, fill=Y)
+    text_area.config(yscrollcommand=scrollbar.set)
+
+    frame = Frame(new)
+    frame.grid()
+
+    #Change font color
+    color_button = Button(frame, text="change font color", font = (12), command = lambda: choose_color())
+    color_button.grid(row=0, column=0)
+
+    #Change font name
+    global font_namebox
+    font_namebox = OptionMenu(frame, font_name, *font.families(), command = change_font())
+    font_namebox.grid(row=0, column=1, padx=5)
+
+    #Change font size
+    global font_sizebox
+    font_sizebox = Spinbox(frame, from_=1, to=100, textvariable=font_size, command = change_font())
+    font_sizebox.grid(row=0, column=2, padx=5)
 
 def open_file():
     pass
