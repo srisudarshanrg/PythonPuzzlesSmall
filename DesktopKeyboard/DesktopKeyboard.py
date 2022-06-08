@@ -102,13 +102,13 @@ def help_box():
         answer2 = "**RELATED RESULTS** \n\n- To perform arithmetic calculations enter the numbers and operators and then click on the '==' button."
         text_help.configure(text = answer2)
     elif "cut" in entry_search:
-        answer3 = "**RELATED RESULTS** \n\n- The cut, copy and paste command are rigt now not working. We are still working on those commands. Please bear with us :("
+        answer3 = "**RELATED RESULTS** \n\n- The cut, copy and paste command are right now not working. We are still working on those commands. Please bear with us :("
         text_help.configure(text = answer3)
     elif "copy" in entry_search:
-        answer4 = "**RELATED RESULTS** \n\n- The cut, copy and paste command are rigt now not working. We are still working on those commands. Please bear with us :("
+        answer4 = "**RELATED RESULTS** \n\n- The cut, copy and paste command are right now not working. We are still working on those commands. Please bear with us :("
         text_help.configure(text = answer4)
     elif "paste" in entry_search:
-        answer5 = "**RELATED RESULTS** \n\n- The cut, copy and paste command are rigt now not working. We are still working on those commands. Please bear with us :("
+        answer5 = "**RELATED RESULTS** \n\n- The cut, copy and paste command are right now not working. We are still working on those commands. Please bear with us :("
         text_help.configure(text = answer5)
     elif "clear" in entry_search:
         answer6 = "**RELATED RESULTS** \n\n- The clear command clears all the data you have entered in the entry space. We will soon come up with a command that backspaces or deletes the character in front/back of the cursor.\n\n- Enter 'clear help' in the help search box to clear the help box."
