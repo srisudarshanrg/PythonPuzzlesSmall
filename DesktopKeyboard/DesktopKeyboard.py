@@ -16,7 +16,7 @@ keyboard.configure(bg="skyblue", menu=menu_bar)
 
 img_dir = os.getcwd()
 
-icon = PhotoImage(file="F:\Sri\Git\PythonPuzzles\DesktopKeyboard\paint.png")
+icon = PhotoImage(file="paint.png")
 keyboard.iconphoto(False, icon)
 
 #create functions for the buttons   
