@@ -17,7 +17,7 @@ options = [
 game = Tk()
 game.geometry("700x700")
 game.title("Rock Paper Scissors")
-photo = PhotoImage(file = "F:\Sri\Git\PythonPuzzles\RockPaperScissors\Scissors.png")
+photo = PhotoImage(file = "Scissors.png")
 game.iconphoto(False, photo)
 menu_bar = Menu(game)
 game.configure(bg="skyblue", menu=menu_bar)
